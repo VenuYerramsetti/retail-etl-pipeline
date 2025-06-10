@@ -30,6 +30,7 @@ retail-etl-pipeline/
 │ ├── extract.py
 │ ├── transform.py
 │ └── load.py
+│ └── query.py
 ├── db/ # (optional) schema.sql
 ├── retail.db # Local SQLite DB
 ├── requirements.txt
