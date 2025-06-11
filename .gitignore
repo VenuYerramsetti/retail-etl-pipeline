@@ -20,4 +20,4 @@ Thumbs.db
 *.db
 
 # Output files
-/output/
+# /output/   <-- COMMENT OR DELETE THIS LINE
