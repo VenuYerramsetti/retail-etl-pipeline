@@ -1,42 +1,99 @@
 # 🛒 Retail ETL Pipeline
 
-This project showcases a simple but scalable ETL pipeline built in Python using a real-world retail dataset. It demonstrates key data engineering concepts such as ingestion, transformation, and loading into a local database.
+This project showcases a scalable ETL pipeline using Python, SQL, and Power BI, built around a real-world retail dataset. It covers data extraction, transformation, loading, querying, and dashboarding.
 
 ---
 
-## 📊 Dataset
+## 📦 Dataset
 
 - [Superstore Sales Dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final)
-- Includes order details, shipping, customer info, sales, profit, etc.
+- Contains order, customer, shipping, and profit details.
 
 ---
 
 ## 🔧 Technologies Used
 
-- **Python**: Data manipulation and scripting
-- **Pandas**: Data processing
-- **SQLite**: Local database storage
-- **Modular ETL Structure**: `extract.py`, `transform.py`, `load.py`
+- **Python** – Core scripting for ETL
+- **Pandas** – Data transformation
+- **SQLite** – Local data storage
+- **SQL** – Analysis and querying
+- **Power BI** – Dashboarding
+- **Modular Structure** – Separate scripts for each pipeline stage
 
 ---
 
-## 🧱 Project Structure
+## ⚙️ Setup
 
+```bash
+pip install -r requirements.txt
+python scripts/extract.py
+python scripts/transform.py
+python scripts/load.py
+
+---
+
+## 📁 Project Structure
 
 retail-etl-pipeline/
-├── data/ # Raw dataset
-├── output/ # Transformed output CSVs
-├── scripts/ # Modular ETL scripts
-│ ├── extract.py
-│ ├── transform.py
-│ └── load.py
-│ └── query.py
-├── db/ # (optional) schema.sql
-├── retail.db # Local SQLite DB
+├── data/                  # Raw input data
+├── notebooks/             # Jupyter notebooks for EDA/SQL
+├── output/                # Final outputs
+│   ├── retail.db
+│   ├── Retail_ETL_Dashboard.pbix
+│   ├── charts/
+│   └── exports/
+├── sql/                   # SQL queries
+├── scripts/               # Modular ETL scripts
 ├── requirements.txt
 ├── .gitignore
 └── README.md
 
+
+---
+
+## 📊 Power BI Dashboard
+
+Includes key visuals:
+
+✅ Total Sales per Region
+
+✅ Top Products by Sales
+
+✅ Profit by Category
+
+✅ Monthly Sales Trend
+
+✅ Customer Frequency
+
+✅ Filters for Region, Category
+
+📸 ![Dashboard Preview](Retail_ETL_Dashboard Preview Map.png)
+
+
+
+---
+
+## 🧠 SQL Practice
+Explore queries like:
+
+```sql
+
+-- Top 10 Selling Products
+SELECT [Product Name], SUM(Sales) AS Total_Sales
+FROM superstore
+GROUP BY [Product Name]
+ORDER BY Total_Sales DESC
+LIMIT 10;
+Stored in:
+
+```pgsql
+
+sql/
+├── top_10_products.sql
+├── total_sales_by_region.sql
+├── monthly_sales.sql
+├── customer_frequency.sql
+├── cumulative_sales_by_month.sql
 
 ---
 
@@ -74,20 +131,22 @@ retail-etl-pipeline/
 ---
 
 ## 🚀 Future Enhancements:
-- Cloud integration (Azure SQL / Azure Data Factory)
-- Airflow DAG automation
-- Power BI dashboards with DAX
-- Machine Learning for sales forecasting & customer segmentation
+
+ - Migrate to Azure SQL
+
+ - Automate ETL with Apache Airflow
+
+ - Add unit tests and logging
+
+ - Apply ML for forecasting & segmentation
+
 
 ---
 
-## 📈 What’s Next
-
-- Move SQLite DB to Azure SQL
-- Automate ETL using Airflow
-- Create Power BI dashboard
-- Add machine learning models for forecasting or segmentation
-
+🙋 Author
+Venu Madhuri Yerramsetti
+LinkedIn
+📧 venumadhuri.y@gmail.com
 ---
 
 ## 💡 Author
