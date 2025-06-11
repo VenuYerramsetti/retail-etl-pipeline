@@ -1,3 +1,7 @@
+
+
+📸 ![Dashboard Preview](Retail_ETL_Dashboard Preview Map.png)
+
 # 🛒 Retail ETL Pipeline
 
 This project showcases a scalable ETL pipeline using Python, SQL, and Power BI, built around a real-world retail dataset. It covers data extraction, transformation, loading, querying, and dashboarding.
@@ -10,6 +14,7 @@ This project showcases a scalable ETL pipeline using Python, SQL, and Power BI, 
 - Contains order, customer, shipping, and profit details.
 
 ---
+
 
 ## 🔧 Technologies Used
 
@@ -30,125 +35,121 @@ python scripts/extract.py
 python scripts/transform.py
 python scripts/load.py
 
----
+````
+
+-----
+
 
 ## 📁 Project Structure
 
+```
 retail-etl-pipeline/
-├── data/                  # Raw input data
-├── notebooks/             # Jupyter notebooks for EDA/SQL
-├── output/                # Final outputs
-│   ├── retail.db
-│   ├── Retail_ETL_Dashboard.pbix
-│   ├── charts/
-│   └── exports/
-├── sql/                   # SQL queries
-├── scripts/               # Modular ETL scripts
-├── requirements.txt
-├── .gitignore
-└── README.md
+├── data/               # Raw input data (e.g., source CSV)
+├── notebooks/          # Jupyter notebooks for EDA/SQL exploration
+├── output/             # Final outputs from the pipeline
+│   ├── retail.db       # SQLite database file
+│   ├── Retail_ETL_Dashboard.pbix # Power BI Dashboard file
+│   ├── charts/         # (Optional) Exported chart images
+│   └── exports/        # (Optional) Exported data files
+├── sql/                # SQL queries used for analysis/dashboarding
+├── scripts/            # Modular ETL scripts (extract.py, transform.py, load.py)
+├── requirements.txt    # Python dependencies
+├── .gitignore          # Git ignore file
+└── README.md           # Project README
+```
 
-
----
+-----
 
 ## 📊 Power BI Dashboard
 
-Includes key visuals:
+The Power BI dashboard provides key insights into the retail data, including:
 
-✅ Total Sales per Region
+  * ✅ Total Sales per Region
+  * ✅ Top Products by Sales
+  * ✅ Profit by Category
+  * ✅ Monthly Sales Trend
+  * ✅ Customer Frequency
+  * ✅ Interactive Filters for Region, Category, etc.
 
-✅ Top Products by Sales
+**Dashboard Preview:** 📸 ![Dashboard Preview](Retail_ETL_Dashboard Preview Map.png)
 
-✅ Profit by Category
-
-✅ Monthly Sales Trend
-
-✅ Customer Frequency
-
-✅ Filters for Region, Category
-
-📸 ![Dashboard Preview](Retail_ETL_Dashboard Preview Map.png)
-
-
-
----
+-----
 
 ## 🧠 SQL Practice
-Explore queries like:
+
+Explore various SQL queries used for data analysis and dashboard integration. Key queries include:
 
 ```sql
-
 -- Top 10 Selling Products
 SELECT [Product Name], SUM(Sales) AS Total_Sales
 FROM superstore
 GROUP BY [Product Name]
 ORDER BY Total_Sales DESC
 LIMIT 10;
-Stored in:
+```
 
-```pgsql
+These and other analytical queries are stored in the `sql/` directory:
 
+```
 sql/
 ├── top_10_products.sql
 ├── total_sales_by_region.sql
 ├── monthly_sales.sql
 ├── customer_frequency.sql
 ├── cumulative_sales_by_month.sql
+```
 
----
+-----
 
 ## ▶️ How to Run
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/yourusername/retail-etl-pipeline.git
-   cd retail-etl-pipeline
+1.  **Clone the repository:**
 
-2. Set up your environment:
+    ```bash
+    git clone [https://github.com/yourusername/retail-etl-pipeline.git](https://github.com/yourusername/retail-etl-pipeline.git)
+    cd retail-etl-pipeline
+    ```
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Windows: venv\Scripts\activate
-   pip install -r requirements.txt
+2.  **Set up your Python environment:**
 
-3. Run the pipeline:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: `venv\Scripts\activate`
+    pip install -r requirements.txt
+    ```
 
-   ```bash
-   python scripts/extract.py
-   python scripts/transform.py
-   python scripts/load.py
+3.  **Run the ETL pipeline scripts:**
+
+    ```bash
+    python scripts/extract.py
+    python scripts/transform.py
+    python scripts/load.py
+    ```
+
+    After running these scripts, the `retail.db` SQLite database and `Retail_ETL_Dashboard.pbix` (if included and pre-built) will be available in the `output/` directory.
+
+-----
+
+## 🚀 Future Enhancements
+
+  * Migrate the database to a cloud-based solution like **Azure SQL** for production scalability.
+  * Automate the ETL process using orchestration tools such as **Apache Airflow**.
+  * Add comprehensive unit tests and robust logging for better maintainability and error tracking.
+  * Apply Machine Learning models for advanced analytics like sales forecasting and customer segmentation.
+
+-----
+
+## 🙋 Author
+
+**Venu Madhuri Yerramsetti**
+
+  * [LinkedIn Profile](https://www.linkedin.com/in/venu-madhuri-yerramsetti-349057aa)
+  * Email: venumadhuri.y@gmail.com
+
+<!-- end list -->
+
+```
+```
 
 
 ---
-
-## 📦 Technologies
-- Python (pandas, sqlite3)
-- SQL (SQLite)
-- Modular scripting (extract → transform → load)
-- Designed for scalability to Azure SQL, Airflow, or dbt
-
-
----
-
-## 🚀 Future Enhancements:
-
- - Migrate to Azure SQL
-
- - Automate ETL with Apache Airflow
-
- - Add unit tests and logging
-
- - Apply ML for forecasting & segmentation
-
-
----
-
-🙋 Author
-Venu Madhuri Yerramsetti
-LinkedIn
-📧 venumadhuri.y@gmail.com
----
-
-## 💡 Author
-[Venu Madhuri Yerramsetti]
-[https://www.linkedin.com/in/venu-madhuri-yerramsetti-349057aa] | [Portfolio] | [venumadhuri.y@gmail.com]
