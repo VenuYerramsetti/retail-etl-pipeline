@@ -20,4 +20,4 @@ Thumbs.db
 *.db
 
 # Output files
-# /output/   <-- COMMENT OR DELETE THIS LINE
+# /output/   <-- delete or comment out this line to allow tracking exports

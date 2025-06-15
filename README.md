@@ -1,5 +1,6 @@
 
 
+
 📸 ![Dashboard Preview](Retail_ETL_Dashboard Preview Map.png)
 
 # 🛒 Retail ETL Pipeline
@@ -31,12 +32,51 @@ This project showcases a scalable ETL pipeline using Python, SQL, and Power BI, 
 
 ```bash
 pip install -r requirements.txt
-python scripts/extract.py
-python scripts/transform.py
-python scripts/load.py
+python -m venv venv
+venv\Scripts\activate  # On Windows
+# source venv/bin/activate  # On macOS/Linux
 
 ````
 
+
+-----
+
+## ▶️ How to Run
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone [https://github.com/yourusername/retail-etl-pipeline.git](https://github.com/yourusername/retail-etl-pipeline.git)
+    cd retail-etl-pipeline
+    ```
+
+2.  **Set up your Python environment:**
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: `venv\Scripts\activate`
+    pip install -r requirements.txt
+    ```
+
+3.  **Run the ETL pipeline scripts:**
+Run the complete ETL pipeline with a single command:
+    ```bash
+    python -m scripts.run_pipeline
+    ```
+    
+This performs:
+
+  🟢 Extraction from CSV (data/superstore.csv)
+  🟡 Transformation using pandas
+  🔵 Loading into SQLite (output/retail_data.db)
+
+Output files are saved to:
+
+```
+output/
+├── exports/transformed_superstore.csv
+├── retail_data.db
+```
 -----
 
 
@@ -44,21 +84,28 @@ python scripts/load.py
 
 ```
 retail-etl-pipeline/
-├── data/               # Raw input data (e.g., source CSV)
-├── notebooks/          # Jupyter notebooks for EDA/SQL exploration
-├── output/             # Final outputs from the pipeline
-│   ├── retail.db       # SQLite database file
-│   ├── Retail_ETL_Dashboard.pbix # Power BI Dashboard file
-│   ├── charts/         # (Optional) Exported chart images
-│   └── exports/        # (Optional) Exported data files
-├── sql/                # SQL queries used for analysis/dashboarding
-├── scripts/            # Modular ETL scripts (extract.py, transform.py, load.py)
-├── requirements.txt    # Python dependencies
-├── .gitignore          # Git ignore file
-└── README.md           # Project README
+├── data/                    # Raw input data (e.g., source CSV)
+├── notebooks/               # Jupyter notebooks for EDA/SQL exploration
+├── output/                  # Final outputs from the pipeline
+│   ├── retail_data.db       # SQLite database file
+│   ├── Retail_ETL_Dashboard.pbix  # Power BI Dashboard file
+│   └── exports/             # Transformed CSV output
+├── scripts/                 # Modular ETL scripts
+│   ├── extract.py
+│   ├── transform.py
+│   ├── load.py
+│   └── run_pipeline.py
+├── sql/                    # SQL queries used for dashboard
+├── requirements.txt        # Python dependencies
+├── .gitignore              # Files to ignore in git
+├── .gitattributes          # Line-ending and file-type settings
+├── LICENSE.md              # MIT License
+└── README.md               # This file
 ```
 
 -----
+
+
 
 ## 📊 Power BI Dashboard
 
@@ -98,36 +145,6 @@ sql/
 ├── customer_frequency.sql
 ├── cumulative_sales_by_month.sql
 ```
-
------
-
-## ▶️ How to Run
-
-1.  **Clone the repository:**
-
-    ```bash
-    git clone [https://github.com/yourusername/retail-etl-pipeline.git](https://github.com/yourusername/retail-etl-pipeline.git)
-    cd retail-etl-pipeline
-    ```
-
-2.  **Set up your Python environment:**
-
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: `venv\Scripts\activate`
-    pip install -r requirements.txt
-    ```
-
-3.  **Run the ETL pipeline scripts:**
-
-    ```bash
-    python scripts/extract.py
-    python scripts/transform.py
-    python scripts/load.py
-    ```
-
-    After running these scripts, the `retail.db` SQLite database and `Retail_ETL_Dashboard.pbix` (if included and pre-built) will be available in the `output/` directory.
-
 -----
 
 ## 🚀 Future Enhancements
